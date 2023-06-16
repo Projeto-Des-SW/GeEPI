@@ -1,0 +1,13 @@
+/* Rectangle 5 */
+.container-fluid {
+    max-width: 95%;
+}
+.rounded-custom {
+    border-radius: 35px;
+}
+
+.navbar-text {
+    text-align: center;
+    width: 100%;
+    color: white;
+}
