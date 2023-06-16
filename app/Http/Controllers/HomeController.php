@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(Auth::user()->tipo_usuario_id == 1)
+        {
+            return view('administrador.home');
+        }
+        elseif(Auth::user()->tipo_usuario_id == 2)
+        {
+            return view('fiscal.home');
+        }
+        else
+        {
+            return view('auth.login');
+        }
     }
 }
