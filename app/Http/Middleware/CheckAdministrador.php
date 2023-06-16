@@ -16,13 +16,14 @@ class CheckAdministrador
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::check()) {
-            return redirect(route('home'))->with('error', 'Você precisa estar logado para acessar essa página!');
+        if (!Auth::check())
+        {
+            return redirect(route('login'))->with(['error_message' => 'Você precisa estar logado para acessar esta página!']);
         }
         if (Auth::user()->tipo_usuario_id == 1) {
             return $next($request);
         } else {
-            return redirect(route('home'))->with('error', 'Você não possui privilégios para acessar essa página!');
+            return redirect(route('home'))->with(['error_message' => 'Você não possui privilégios para acessar esta página!']);
         }
     }
 }
