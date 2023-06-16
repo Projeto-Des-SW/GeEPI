@@ -21,7 +21,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
-    <div id="app" style="background: #1C3751">
+    <div id="app" style="background: #1C3751; height: 87.6vh; margin: 0px; padding: 0px;">
         @include('layouts.components.navbar')
         <main class="py-4">
             @include('layouts.components.messages')
