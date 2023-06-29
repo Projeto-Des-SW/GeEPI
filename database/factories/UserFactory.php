@@ -25,6 +25,7 @@ class UserFactory extends Factory
             //'email_verified_at' => now(),
             'password' => '',
             'tipo_usuario_id' => '',
+            'setor_id' => '',
         ];
     }
 

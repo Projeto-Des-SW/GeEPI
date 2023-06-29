@@ -9,12 +9,13 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('tipo_usuarios', function (Blueprint $table)
+        Schema::create('colaboradors', function (Blueprint $table) 
         {
             $table->id();
-            $table->string('tipo');
+            $table->string('nome');
+            $table->foreignId('setor_id')->constrained('setors');
             $table->timestamps();
         });
     }
@@ -22,8 +23,8 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('tipo_usuarios');
+        Schema::dropIfExists('colaboradors');
     }
 };
