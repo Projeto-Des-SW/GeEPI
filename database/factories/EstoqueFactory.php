@@ -18,7 +18,7 @@ class EstoqueFactory extends Factory
     {
         return 
         [
-            'quantidade_minima' => '',
+            'quantidade' => '',
             'epi_id' => '',
         ];
     }

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('solicitacao_id')->constrained('solicitacaos');
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('epi_id')->constrained('epis');
-            $table->foreignId('colaborador_id')->constrained('colaboradores');
+            $table->foreignId('colaborador_id')->constrained('colaboradors');
             $table->timestamps();
         });
     }

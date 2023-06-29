@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) 
+        Schema::create('users', function (Blueprint $table)
         {
             $table->id();
             $table->string('nome');
@@ -21,7 +21,7 @@ return new class extends Migration
             //$table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->foreignId('tipo_usuario_id')->constrained('tipo_usuarios');
-            $table->foreignId('setor_id')->constrained('setores')->nullable();
+            $table->foreignId('setor_id')->nullable()->constrained('setors');
             $table->timestamps();
         });
     }

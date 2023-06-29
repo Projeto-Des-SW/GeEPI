@@ -22,7 +22,7 @@ class SolicitacaoFactory extends Factory
             'observacao_fiscal' => '',
             'observacao_administrador' => '',
             'data_aprovacao' => '',
-            'data_finazacao' => '',
+            'data_finalizacao' => '',
             'user_id' => '',
         ];
     }

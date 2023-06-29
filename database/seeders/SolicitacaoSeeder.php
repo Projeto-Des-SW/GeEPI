@@ -14,6 +14,6 @@ class SolicitacaoSeeder extends Seeder
     public function run(): void
     {
         Solicitacao::factory()->create(['status' => 'Em análise', 'observacao_fiscal' => 'OBS Fiscal', 'observacao_administrador' => 'OBS Admin',
-                                        'data_aprovacao' => '28-06-2023', 'data_finalizacao' => '29-06-2023', 'user_id' => 2]);
+                                        'data_aprovacao' => '2023-06-28', 'data_finalizacao' => '2023-06-29', 'user_id' => '2']);
     }
 }
