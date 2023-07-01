@@ -44,7 +44,7 @@ class EpiController extends Controller
      */
     public function show(string $id)
     {
-        //
+
     }
 
     /**
