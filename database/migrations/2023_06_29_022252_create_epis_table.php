@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('epis', function (Blueprint $table) 
+        Schema::create('epis', function (Blueprint $table)
         {
             $table->id();
             $table->string('nome');
             $table->integer('quantidade_minima');
             $table->string('certificado_aprovacao');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

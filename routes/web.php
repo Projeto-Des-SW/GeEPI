@@ -28,8 +28,14 @@ Route::middleware('checkAdministrador')->group( function()
 {
     Route::prefix('administrador/epi')->group( function()
     {
+        Route::get('/index', [EpiController::class, 'index'])->name('epi.index');
+
         Route::get('/create', [EpiController::class, 'create'])->name('epi.create');
-        Route::get('/edit', [EpiController::class, 'edit'])->name('epi.edit');
-        Route::get('/delete', [EpiController::class, 'delete'])->name('epi.delete');
+        Route::post('/store', [EpiController::class, 'store'])->name('epi.store');
+
+        Route::get('/edit/{epi_id}', [EpiController::class, 'edit'])->name('epi.edit');
+        Route::post('/update', [EpiController::class, 'update'])->name('epi.update');
+
+        Route::get('/delete/{epi_id}', [EpiController::class, 'delete'])->name('epi.delete');
     });
 });

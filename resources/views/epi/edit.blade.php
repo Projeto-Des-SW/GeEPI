@@ -2,17 +2,19 @@
 
 @section('content')
     <div class="container">
-        <h1 class="text-center"> Cadastrar EPI </h1>
+        <h1 class="text-center"> Editar EPI </h1>
 
-        <form method="POST" action=" {{ route('epi.store') }}">
+        <form method="POST" action=" {{ route('epi.update') }}">
             @csrf
+
+            <input type="hidden" name="epi_id" value="{{ $epi->id }}">
 
             <div class="row">
                 <div class="col-md-4"> </div>
 
                 <div class="col-md-4">
                     <label for="nome_epi"> EPI </label>
-                    <input class="form-control" type="text" name="nome" id="nome_epi">
+                    <input class="form-control" type="text" name="nome" id="nome_epi" value="{{ $epi->nome }}">
                 </div>
             </div>
 
@@ -21,7 +23,7 @@
 
                 <div class="col-md-4">
                     <label for="quant_minima"> Quantidade Mínima </label>
-                    <input class="form-control" type="number" name="quantidade_minima" id="quant_minima">
+                    <input class="form-control" type="number" name="quantidade_minima" id="quant_minima" value="{{ $epi->quantidade_minima }}">
                 </div>
             </div>
 
@@ -30,7 +32,7 @@
 
                 <div class="col-md-4">
                     <label for="ca_epi"> CA - Certificado de Aprovação </label>
-                    <input class="form-control" type="text" name="certificado_aprovacao" id="ca_epi">
+                    <input class="form-control" type="text" name="certificado_aprovacao" id="ca_epi" value="{{ $epi->certificado_aprovacao }}">
                 </div>
             </div>
 
@@ -44,7 +46,7 @@
                 </div>
 
                 <div class="col-md-1">
-                    <button type="submit" class="form-control btn btn-success"> Cadastrar </button>
+                    <button type="submit" class="form-control btn btn-success"> Atualizar </button>
                 </div>
             </div>
         </form>

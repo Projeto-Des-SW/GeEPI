@@ -20,7 +20,7 @@
 
 
             <div class="col-md-2">
-                <a>
+                <a href="{{ route('epi.index') }}">
                     <img style="width: 100%" src="/images/home/cadastrar_epi_icon.svg">
                 </a>
             </div>

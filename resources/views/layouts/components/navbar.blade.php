@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md" style="background-color: #1C3751">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
+        <a class="navbar-brand" href="{{ route('home') }}">
             <img class="logo" src="/images/layouts/logo_geepi.svg">
         </a>
 
