@@ -34,7 +34,7 @@
    <li>Versão: 8.2.4</li>
 </ul>
 
-<h3><a href = "https://laravel.com/">Rails</a></h3>
+<h3><a href = "https://laravel.com/">Laravel</a></h3>
 <ul>
    <li>Versão: 9.0</li>
 </ul>
