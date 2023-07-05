@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EpiController;
+use App\Http\Controllers\FiscalController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -38,4 +39,19 @@ Route::middleware('checkAdministrador')->group( function()
 
         Route::get('/delete/{epi_id}', [EpiController::class, 'delete'])->name('epi.delete');
     });
+
+    Route::prefix('administrador/fiscal')->group( function()
+    {
+        Route::get('/index', [FiscalController::class, 'index'])->name('fiscal.index');
+
+        Route::get('/create', [FiscalController::class, 'create'])->name('fiscal.create');
+        Route::post('/store', [FiscalController::class, 'store'])->name('fiscal.store');
+
+        Route::get('/fiscal/{fiscal_id}', [FiscalController::class, 'edit'])->name('fiscal.edit');
+        Route::post('/update', [FiscalController::class, 'update'])->name('fiscal.update');
+
+        Route::get('/delete/{fiscal_id}', [FiscalController::class, 'delete'])->name('fiscal.delete');
+
+    });
 });
+

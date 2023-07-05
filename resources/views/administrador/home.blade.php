@@ -38,7 +38,7 @@
             </div>
 
             <div class="col-md-2">
-                <a>
+                <a href="{{ route('fiscal.index') }}" >
                     <img style="width: 100%" src="/images/home/gerenciar_fiscais_icon.svg">
                 </a>
             </div>
