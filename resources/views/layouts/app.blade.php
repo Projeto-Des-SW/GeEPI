@@ -19,6 +19,12 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+
 </head>
 <body>
     <div id="app">
@@ -31,5 +37,12 @@
     </div>
 
     <!-- @include('layouts.components.footer') -->
+
+    <script>
+        $(document).ready(function() {
+            $('#telefone').mask('(99) 9 9999-9999');
+            $('#cpf').mask('999.999.999-99');
+        });
+    </script>
 </body>
 </html>
