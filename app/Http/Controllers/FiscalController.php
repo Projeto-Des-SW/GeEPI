@@ -17,7 +17,8 @@ class FiscalController extends Controller
      */
     public function index()
     {
-        //
+        $usuarios = User::where('tipo_usuario_id', '2')->get()->sortBy('id');
+        return view('usuario.fiscal_index',compact('usuarios'));
     }
 
     /**
