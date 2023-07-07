@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1 class="text-center"> EPIs </h1>
+        <h1 class="text-center"> Fiscais </h1>
 
         <div class="row">
             <div class="col-md-1"></div>
@@ -28,7 +28,7 @@
                     <tr style="background-color: #AD7210; color: white;">
                         <th scope="col">#</th>
                         <th scope="col" class="text-center">Nome</th>
-                        <th scope="col" class="text-center">Contato</th>
+                        <th scope="col" class="text-center">CPF</th>
                         <th scope="col" class="text-center">Setor</th>
                         <th scope="col" class="text-center">Editar/Apagar</th>
                     </tr>
@@ -36,10 +36,10 @@
 
                     <tbody>
                     @foreach($usuarios as $usuario)
-                        <tr>
+                        <tr onmouseenter="">
                             <th scope="row"></th>
                             <td class="text-center">{{ $usuario->nome }} </td>
-                            <td class="text-center">{{ $usuario->contato }}</td>
+                            <td class="text-center">{{ $usuario->cpf }}</td>
                             <td class="text-center">{{ $usuario->setor->nome }}</td>
                             <td class="text-center">
                                 <a href="" class="m-2">
