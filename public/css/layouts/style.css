@@ -2,3 +2,6 @@
     width: 150px;
     height: 150px;
 }
+tr:hover {
+     background-color: #efefef;
+ }
