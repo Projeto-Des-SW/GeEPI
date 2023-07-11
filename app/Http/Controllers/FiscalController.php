@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreFiscalRequest;
+use App\Models\Epi;
 use App\Models\Fiscal;
 use App\Models\Setor;
 use App\Models\User;
@@ -78,8 +79,12 @@ class FiscalController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function delete($fiscal_id)
     {
-        //
+        $fiscal = User::findOrFail($fiscal_id);
+
+        $fiscal->delete();
+
+        return redirect(route('fiscal.index'))->with(['message' => 'Fiscal excluído com sucesso!']);
     }
 }

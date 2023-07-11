@@ -46,7 +46,7 @@
                                     <img src="/images/funcionalidades/edit.svg">
                                 </a>
 
-                                <a href="" class="m-3" onclick="return confirm('Tem certeza de que deseja excluir este item?')">
+                                <a href="{{ route('fiscal.delete', ['fiscal_id' => $usuario->id]) }}" class="m-3" onclick="return confirm('Tem certeza de que deseja excluir este item?')">
                                     <img src="/images/funcionalidades/delete.svg">
                                 </a>
                             </td>
