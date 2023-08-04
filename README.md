@@ -27,6 +27,13 @@
     O Fiscal deve ser capaz de criar, editar e remover solicitações, consultar seu histórico e verificar o status das solicitações já feitas.
    </h4>
    
+<h1>Artefatos:</h1>
+<h3><a href = "https://docs.google.com/document/d/1jQKUXpLrDCau642qM40DPSpiN3IekYtg2CGjzk5m1Go/edit?usp=drive_link">Estudo de Viabilidade</a></h3>
+<h3><a href = "https://docs.google.com/document/d/1i3ZWlw_pFdFbCG1so0gZmgtYaSiLo6zNlo-Qb3rf2NI/edit?usp=drive_link">TAP</a></h3>
+<h3><a href = "https://www.figma.com/file/6N51YViG0rxL1YNJgmQSnz/GeEPI?type=design&node-id=0%3A1&mode=design&t=yFdGAGVnETBe4NJl-1">Protótipo</a></h3>
+<h3><a href = "https://drive.google.com/file/d/1tOdPSbOXGwvUn2AMbVDNVMuJyAHmUEL9/view?usp=sharing">MER</a></h3>
+<h3><a href = "https://docs.google.com/document/d/1N2521LyQv55cg6yU1W4JCkEg_4UpvsXGK6-tAIrnFLg/edit?usp=drive_link">Plano de Projeto</a></h3>
+
 <h1>Tecnologias Usadas:</h1>
 
 <h3><a href = "https://www.php.net/">PHP</a></h3>
