@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreFiscalRequest;
+use App\Http\Requests\UpdateFiscalRequest;
 use App\Models\Epi;
 use App\Models\Fiscal;
 use App\Models\Setor;
@@ -59,26 +60,29 @@ class FiscalController extends Controller
     {
         //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit($fiscal_id)
     {
-        //
+        $fiscal = User::findOrFail($fiscal_id);
+        $setores = Setor::all()->sortBy('id');
+
+        return view('usuario.fiscal_edit', compact('fiscal', 'setores'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(UpdateFiscalRequest $request)
     {
-        //
-    }
+        $fiscal = User::findOrFail($request->fiscal_id);
 
-    /**
-     * Remove the specified resource from storage.
-     */
+        $fiscal->nome = $request->nome;
+        $fiscal->email = $request->email;
+        $fiscal->cpf = $request->cpf;
+        $fiscal->contato = $request->contato;
+        //$fiscal->password = Hash::make($request->password);
+        //$fiscal->tipo_usuario_id = $request->tipo_usuario_id;
+        $fiscal->setor_id = $request->setor_id;
+
+        $fiscal->update();
+        return redirect(route('fiscal.index'))->with(['message' => 'Fiscal atualizado com sucesso!']);
+    }
     public function delete($fiscal_id)
     {
         $fiscal = User::findOrFail($fiscal_id);

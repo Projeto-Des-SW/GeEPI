@@ -42,7 +42,7 @@
                             <td class="text-center">{{ $usuario->cpf }}</td>
                             <td class="text-center">{{ $usuario->setor->nome }}</td>
                             <td class="text-center">
-                                <a href="" class="m-2">
+                                <a href="{{route('fiscal.edit', ['fiscal_id' => $usuario->id]) }}" class="m-2">
                                     <img src="/images/funcionalidades/edit.svg">
                                 </a>
 
