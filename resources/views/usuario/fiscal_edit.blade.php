@@ -51,7 +51,7 @@
                 <div class="col-md-4">
                     <label for="setor_fiscal"> Setor </label>
                     <select class="form-select" name="setor_id" id="setor_fiscal" required>
-                        <option value="" selected hidden> {{$fiscal->setor->nome}} </option>
+                        <option value="{{ $fiscal->setor->id }}" selected hidden> {{$fiscal->setor->nome}} </option>
                         @foreach($setores as $setor)
                             <option value="{{$setor->id}}"> {{ $setor->nome }} </option>
                         @endforeach
