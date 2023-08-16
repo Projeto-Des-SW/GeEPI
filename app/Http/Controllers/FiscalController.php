@@ -50,7 +50,8 @@ class FiscalController extends Controller
 
         $fiscal->save();
 
-        return redirect(route('fiscal.create'))->with(['message' => 'Fiscal cadastrado com sucesso!']);
+
+        return redirect(route('fiscal.index'))->with(['message' => 'Fiscal cadastrado com sucesso!']);
     }
 
     /**
