@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ColaboradorController;
 use App\Http\Controllers\EpiController;
 use App\Http\Controllers\FiscalController;
 use App\Http\Controllers\SetorController;
@@ -68,6 +69,21 @@ Route::middleware('checkAdministrador')->group( function()
         Route::post('/update', [SetorController::class, 'update'])->name('setor.update');
 
         Route::get('/delete/{setor_id}', [SetorController::class, 'delete'])->name('setor.delete');
+
+    });
+
+
+    Route::prefix('administrador/colaborador')->group( function()
+    {
+        Route::get('/index', [ColaboradorController::class, 'index'])->name('colaborador.index');
+
+        Route::get('/create', [ColaboradorController::class, 'create'])->name('colaborador.create');
+        Route::post('/store', [ColaboradorController::class, 'store'])->name('colaborador.store');
+
+        Route::get('/colaborador/{colaborador_id}', [ColaboradorController::class, 'edit'])->name('colaborador.edit');
+        Route::post('/update', [ColaboradorController::class, 'update'])->name('colaborador.update');
+
+        Route::get('/delete/{colaborador_id}', [ColaboradorController::class, 'delete'])->name('colaborador.delete');
 
     });
 });
