@@ -12,7 +12,7 @@ class StoreColaboradorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nome' => 'required|min: 5',
+            'nome' => 'required|max:255|min:5',
             'setor_id' => 'required',
         ];
     }

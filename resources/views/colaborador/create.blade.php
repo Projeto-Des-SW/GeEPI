@@ -12,7 +12,8 @@
 
                 <div class="col-md-4">
                     <label for="nome_fiscal"> Nome </label>
-                    <input class="form-control" type="text" name="nome" id="nome_fiscal" required>
+                    <input class="form-control" type="text" name="nome" id="nome_fiscal" value="{{old('nome')}}" required>
+
                 </div>
             </div>
 
