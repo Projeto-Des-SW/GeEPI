@@ -4,6 +4,21 @@
     <div class="container">
         <h1 class="text-center"> Fiscais </h1>
 
+
+        <div class="row">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-5">
+                <form action="{{ route('fiscal.search') }}" method="GET" class="mb-3">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="search" placeholder="Pesquisar por nome..." >
+                        <button type="submit" class="btn btn-primary">Pesquisar</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
         <div class="row">
             <div class="col-md-1"></div>
 
