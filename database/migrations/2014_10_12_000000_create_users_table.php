@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('password');
             $table->foreignId('tipo_usuario_id')->constrained('tipo_usuarios');
             $table->foreignId('setor_id')->nullable()->constrained('setors');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

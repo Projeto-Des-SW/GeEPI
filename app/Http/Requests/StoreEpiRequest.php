@@ -22,9 +22,9 @@ class StoreEpiRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nome' => 'required',
+            'nome' => 'required|max:255|min:5',
             'quantidade_minima' => 'required',
-            'certificado_aprovacao' => 'required',
+            'certificado_aprovacao' => 'required|numeric|size:5',
         ];
     }
 
@@ -32,8 +32,12 @@ class StoreEpiRequest extends FormRequest
     {
         return [
             'nome.required' => 'O nome do epi é obrigatório',
+            'nome.max' => 'O nome do epi deve ter menos de 255 caracteres',
+            'nome.min' => 'O nome do epi deve ter mais de 5 caracteres',
             'quantidade_minima.required' => 'A quantidade mínima é obrigatória',
             'certificado_aprovacao.required' => 'O certificado de aprovação é obrigatório',
+            'certificado_aprovacao.numeric' => 'O certificado de aprovação deve conter apenas números',
+            'certificado_aprovacao.size' => 'O certificado de aprovação deve conter 5 dígitos'
         ];
     }
 }
