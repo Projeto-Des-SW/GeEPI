@@ -55,6 +55,9 @@ Route::middleware('checkAdministrador')->group( function()
 
         Route::get('/delete/{fiscal_id}', [FiscalController::class, 'delete'])->name('fiscal.delete');
 
+        Route::get('/search', [FiscalController::class, 'search'])->name('fiscal.search');
+
+
     });
 
 
