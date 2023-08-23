@@ -16,18 +16,32 @@
                 </div>
             </div>
 
+
+
             <div class="row">
                 <div class="col-md-4"> </div>
+                @if(Auth::user()->tipo_usuario_id == 1)
+                    <div class="row">
+                        <div class="col-md-4"> </div>
 
-                <div class="col-md-4">
-                    <label for="setor_fiscal"> Setor </label>
-                    <select class="form-select" name="setor_id" id="setor_fiscal" required>
-                        <option value="" selected hidden> Selecione o setor </option>
-                        @foreach($setores as $setor)
-                            <option value="{{$setor->id}}"> {{ $setor->nome }} </option>
-                        @endforeach
-                    </select>
-                </div>
+                        <div class="col-md-4">
+                            <label for="setor_fiscal"> Setor </label>
+                            <select class="form-select" name="setor_id" id="setor_fiscal" required>
+                                <option value="" selected hidden> Selecione o setor </option>
+                                @foreach($setores as $setor)
+                                    <option value="{{$setor->id}}"> {{ $setor->nome }} </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                @elseif(Auth::user()->tipo_usuario_id == 2)
+                    <input type="hidden" name="setor_id" value="{{Auth::user()->setor->id}}">
+                    <div class="col-md-4">
+                        <label for="setor_fiscal"> Setor </label>
+                        <input class="form-control" type="text" value="{{Auth::user()->setor->nome}}" disabled>
+                    </div>
+                @endif
+
             </div>
 
             </br>
