@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\CheckAdministrador;
+use App\Http\Middleware\CheckAdministradorFiscal;
 use App\Http\Middleware\CheckFiscal;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -67,5 +68,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'checkAdministrador' => CheckAdministrador::class,
         'checkFiscal' => CheckFiscal::class,
+        'checkAdministradorFiscal' => CheckAdministradorFiscal::class,
     ];
 }

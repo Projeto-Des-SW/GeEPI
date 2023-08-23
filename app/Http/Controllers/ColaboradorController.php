@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreColaboradorRequest;
 use App\Models\Colaborador;
 use App\Models\Setor;
+use Illuminate\Support\Facades\Auth;
 
 class ColaboradorController extends Controller
 {
@@ -15,9 +16,15 @@ class ColaboradorController extends Controller
      */
     public function index()
     {
-        $colaboradores = Colaborador::all()->sortBy('id');
+        if (Auth::user()->tipo_usuario_id == 1) {
+            $colaboradores = Colaborador::all()->sortBy('id');
+        }
+        elseif (Auth::user()->tipo_usuario_id == 2){
+            $colaboradores = Colaborador::where('setor_id', Auth::user()->setor->id)->get()->sortBy('id');
+        }
 
         return view('colaborador.index',compact('colaboradores'));
+
     }
 
     /**
@@ -50,7 +57,7 @@ class ColaboradorController extends Controller
      */
     public function show(string $id)
     {
-        
+
     }
 
     /**

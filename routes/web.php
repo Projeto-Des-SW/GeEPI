@@ -73,7 +73,11 @@ Route::middleware('checkAdministrador')->group( function()
     });
 
 
-    Route::prefix('administrador/colaborador')->group( function()
+
+});
+
+Route::middleware('checkAdministradorFiscal')->group( function(){
+    Route::prefix('colaborador')->group( function()
     {
         Route::get('/index', [ColaboradorController::class, 'index'])->name('colaborador.index');
 

@@ -23,7 +23,7 @@
             <div class="col-md-2"> </div>
 
             <div class="col-md-2">
-                <a>
+                <a href="{{ route('colaborador.index') }}">
                     <img style="width: 125%" src="/images/home/gerenciar_colaboradores_icon.svg">
                 </a>
             </div>
