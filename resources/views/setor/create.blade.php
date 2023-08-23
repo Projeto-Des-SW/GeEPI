@@ -12,7 +12,7 @@
 
                 <div class="col-md-4">
                     <label for="nome_epi"> Setor </label>
-                    <input class="form-control" type="text" name="nome" id="nome_setor">
+                    <input class="form-control" type="text" name="nome" id="nome_setor" value="{{old('nome')}}" required>
                 </div>
             </div>
 

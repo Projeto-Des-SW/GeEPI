@@ -23,16 +23,17 @@ class StoreSetorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nome' => 'required|min: 4',
+            'nome' => 'required|max:255|min: 4|unique:setors,nome',
         ];
     }
-    
+
     public function messages(): array
     {
         return [
-
             'nome.required' => 'O nome do setor é obrigatório',
             'nome.min' => 'O nome deve ter no mínimo 4 caracteres',
+            'nome.max' => 'O nome deve ter menos de 255 caracteres',
+            'nome.unique' => 'O nome do setor já existe'
         ];
     }
 }
