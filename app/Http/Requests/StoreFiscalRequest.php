@@ -23,7 +23,7 @@ class StoreFiscalRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nome' => 'required',
+            'nome' => 'required|max:255|min:5',
             'email' => [
                 'required',
                 'email',
@@ -36,7 +36,7 @@ class StoreFiscalRequest extends FormRequest
 
             ],
             'contato' => 'required',
-            'password' => 'required|min: 8',
+            'password' => 'required|min: 8|regex:/^(?=.*[A-Za-z])(?=.*[A-Z])(?=.*\d)/',
             'setor_id' => 'required',
         ];
     }
@@ -45,9 +45,14 @@ class StoreFiscalRequest extends FormRequest
     {
         return [
             'nome.required' => 'O nome do epi é obrigatório',
+            'nome.max' => 'O nome deve ter menos de 255 caracteres',
+            'nome.min' => 'O nome deve ter mais de 5 caracteres',
             'email.unique' => 'Email já cadastrado no sistema!',
             'email.email' => 'Email inválido!',
             'cpf.unique' => 'CPF já cadastrado no sistema!',
+            'password.min' => 'A senha deve ter pelo menos 8 caracteres.',
+            'password.regex' => 'A senha deve conter pelo menos uma letra maiúscula e um número.',
+
         ];
     }
 }
