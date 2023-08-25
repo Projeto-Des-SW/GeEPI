@@ -20,10 +20,14 @@ class EpiController extends Controller
 
         return view('epi.index', compact('epis'));
     }
+    public function search(Request $request)
+    {
+        $searchTerm = $request->input('search'); // Obtém o termo de pesquisa do formulário
+        $request->search = strtolower($request->search);
+        $epis = Epi::where('nome', 'ILIKE', '%' . $searchTerm . '%')->get();
 
-    /**
-     * Show the form for creating a new resource.
-     */
+        return view('epi.index', compact('epis'));
+    }
     public function create()
     {
         return view('epi.create');
