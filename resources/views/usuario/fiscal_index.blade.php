@@ -1,23 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+
+    <style>
+        .custom-container {
+            height: 115%; /* Defina a altura desejada, pode ser em pixels, porcentagem, etc. */
+        }
+    </style>
+
     <div class="container">
         <h1 class="text-center"> Fiscais </h1>
-
-
-        <div class="row">
-            <div class="col-md-1"></div>
-
-            <div class="col-md-5">
-                <form action="{{ route('fiscal.search') }}" method="GET" class="mb-3">
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="search" placeholder="Pesquisar por nome..." >
-                        <button type="submit" class="btn btn-primary">Pesquisar</button>
-                    </div>
-                </form>
-            </div>
-
-        </div>
 
         <div class="row">
             <div class="col-md-1"></div>
@@ -32,8 +24,24 @@
                 <a class="btn btn-success" href="{{ route('fiscal.create') }}"> Cadastrar </a>
             </div>
         </div>
-
         <br>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="container custom-container" style="background-color: #AD7210;" >
+                    <br>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-5">
+                        <form action="{{ route('fiscal.search') }}" method="GET" class="mb-3">
+                            <div class="input-group">
+                                <input type="text" class="form-control rounded-pill" name="search" placeholder="Pesquisar por nome..." >
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-md-1"> </div>
@@ -41,7 +49,6 @@
                 <table class="table">
                     <thead>
                     <tr style="background-color: #AD7210; color: white;">
-                        <th scope="col">#</th>
                         <th scope="col" class="text-center">Nome</th>
                         <th scope="col" class="text-center">CPF</th>
                         <th scope="col" class="text-center">Setor</th>
@@ -52,7 +59,6 @@
                     <tbody>
                     @foreach($usuarios as $usuario)
                         <tr onmouseenter="">
-                            <th scope="row"></th>
                             <td class="text-center">{{ $usuario->nome }} </td>
                             <td class="text-center">{{ $usuario->cpf }}</td>
                             <td class="text-center">{{ $usuario->setor->nome }}</td>
