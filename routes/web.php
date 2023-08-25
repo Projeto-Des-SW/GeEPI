@@ -35,6 +35,8 @@ Route::middleware('checkAdministrador')->group( function()
     {
         Route::get('/index', [EpiController::class, 'index'])->name('epi.index');
 
+        Route::get('/search', [EpiController::class, 'search'])->name('epi.search');
+
         Route::get('/create', [EpiController::class, 'create'])->name('epi.create');
         Route::post('/store', [EpiController::class, 'store'])->name('epi.store');
 
@@ -93,6 +95,8 @@ Route::middleware('checkAdministradorFiscal')->group( function(){
     Route::prefix('colaborador')->group( function()
     {
         Route::get('/index', [ColaboradorController::class, 'index'])->name('colaborador.index');
+
+        Route::get('/search', [ColaboradorController::class, 'search'])->name('colaborador.search');
 
         Route::get('/create', [ColaboradorController::class, 'create'])->name('colaborador.create');
         Route::post('/store', [ColaboradorController::class, 'store'])->name('colaborador.store');
