@@ -24,7 +24,7 @@ class StoreEpiRequest extends FormRequest
         return [
             'nome' => 'required|max:255|min:5',
             'quantidade_minima' => 'required',
-            'certificado_aprovacao' => 'required|numeric|size:5',
+            'certificado_aprovacao' => 'required|numeric',
         ];
     }
 
@@ -37,7 +37,6 @@ class StoreEpiRequest extends FormRequest
             'quantidade_minima.required' => 'A quantidade mínima é obrigatória',
             'certificado_aprovacao.required' => 'O certificado de aprovação é obrigatório',
             'certificado_aprovacao.numeric' => 'O certificado de aprovação deve conter apenas números',
-            'certificado_aprovacao.size' => 'O certificado de aprovação deve conter 5 dígitos'
         ];
     }
 }

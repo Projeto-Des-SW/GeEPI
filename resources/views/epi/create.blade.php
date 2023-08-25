@@ -30,7 +30,7 @@
 
                 <div class="col-md-4">
                     <label for="ca_epi"> CA - Certificado de Aprovação </label>
-                    <input class="form-control" type="text" name="certificado_aprovacao" id="ca_epi" value="{{old('certificado_aprovacao')}}" required>
+                    <input class="form-control" type="text" name="certificado_aprovacao" id="ca_epi" value="{{old('certificado_aprovacao')}}" maxlength="6" required>
                 </div>
             </div>
 

@@ -14,7 +14,7 @@
 
                 <div class="col-md-4">
                     <label for="nome_epi"> EPI </label>
-                    <input class="form-control" type="text" name="nome" id="nome_epi" value="{{ $epi->nome }}">
+                    <input class="form-control" type="text" name="nome" id="nome_epi" value="{{ $epi->nome }}" required>
                 </div>
             </div>
 
@@ -23,7 +23,7 @@
 
                 <div class="col-md-4">
                     <label for="quant_minima"> Quantidade Mínima </label>
-                    <input class="form-control" type="number" name="quantidade_minima" id="quant_minima" value="{{ $epi->quantidade_minima }}">
+                    <input class="form-control" type="number" name="quantidade_minima" id="quant_minima" value="{{ $epi->quantidade_minima }}" required>
                 </div>
             </div>
 
@@ -32,7 +32,7 @@
 
                 <div class="col-md-4">
                     <label for="ca_epi"> CA - Certificado de Aprovação </label>
-                    <input class="form-control" type="text" name="certificado_aprovacao" id="ca_epi" value="{{ $epi->certificado_aprovacao }}">
+                    <input class="form-control" type="text" name="certificado_aprovacao" id="ca_epi" value="{{ $epi->certificado_aprovacao }}" maxlength="6" required>
                 </div>
             </div>
 
