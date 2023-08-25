@@ -15,4 +15,9 @@ class Epi extends Model
     protected $dates = ['deleted_at'];
 
     protected $fillable = ['nome', 'quantidade_minima', 'certificado_aprovacao'];
+
+    public function estoque()
+    {
+        return $this->hasOne(Estoque::class);
+    }
 }

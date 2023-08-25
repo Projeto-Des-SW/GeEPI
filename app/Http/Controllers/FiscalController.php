@@ -65,7 +65,7 @@ class FiscalController extends Controller
     {
         $searchTerm = $request->input('search'); // Obtém o termo de pesquisa do formulário
         $request->search = strtolower($request->search);
-        $usuarios = User::where('nome', 'ILIKE', '%' . $searchTerm . '%')->get();
+        $usuarios = User::where('tipo_usuario_id', '2')->where('nome', 'ILIKE', '%' . $searchTerm . '%')->get();
 
         return view('usuario.fiscal_index', compact('usuarios'));
     }

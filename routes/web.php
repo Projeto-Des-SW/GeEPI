@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\ColaboradorController;
 use App\Http\Controllers\EpiController;
+use App\Http\Controllers\EstoqueController;
 use App\Http\Controllers\FiscalController;
+use App\Http\Controllers\MovimentoEpiController;
 use App\Http\Controllers\SetorController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
@@ -42,6 +44,14 @@ Route::middleware('checkAdministrador')->group( function()
         Route::get('/delete/{epi_id}', [EpiController::class, 'delete'])->name('epi.delete');
     });
 
+    Route::prefix('administrador/estoque')->group( function()
+    {
+        Route::get('/index', [EstoqueController::class, 'index'])->name('estoque.index');
+
+        Route::get('/entrada', [MovimentoEpiController::class, 'create_entrada'])->name('movimento.entrada');
+        Route::get('/saida', [MovimentoEpiController::class, 'create_saida'])->name('movimento.saida');
+        Route::post('/store', [MovimentoEpiController::class, 'store'])->name('movimento.store');
+    });
 
     Route::prefix('administrador/fiscal')->group( function()
     {
