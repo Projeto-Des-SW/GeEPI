@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+
+    <style>
+        .custom-container {
+            height: 115%; /* Defina a altura desejada, pode ser em pixels, porcentagem, etc. */
+        }
+    </style>
+
     <div class="container">
         <h1 class="text-center"> Colaboradores </h1>
 
@@ -19,6 +26,23 @@
         </div>
 
         <br>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="container custom-container" style="background-color: #AD7210;" >
+                    <br>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-5">
+                        <form action="{{ route('colaborador.search') }}" method="GET" class="mb-3">
+                            <div class="input-group">
+                                <input type="text" class="form-control rounded-pill" name="search" placeholder="Pesquisar por nome..." >
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-md-1"> </div>

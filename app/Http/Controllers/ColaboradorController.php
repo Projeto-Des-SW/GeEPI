@@ -55,6 +55,20 @@ class ColaboradorController extends Controller
     /**
      * Display the specified resource.
      */
+    public function search(Request $request)
+    {
+
+        $searchTerm = $request->input('search'); // Obtém o termo de pesquisa do formulário
+        $request->search = strtolower($request->search);
+        if (Auth::user()->tipo_usuario_id == 1) {
+            $colaboradores = Colaborador::where('nome', 'ILIKE', '%' . $searchTerm . '%')->get();
+        }
+        elseif (Auth::user()->tipo_usuario_id == 2){
+            $colaboradores = Colaborador::where('setor_id', Auth::user()->setor->id)->where('nome', 'ILIKE', '%' . $searchTerm . '%')->get();
+        }
+
+        return view('colaborador.index', compact('colaboradores'));
+    }
     public function show(string $id)
     {
 
