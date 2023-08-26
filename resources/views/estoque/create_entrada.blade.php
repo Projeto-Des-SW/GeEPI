@@ -15,7 +15,7 @@
                 <div class="col-md-4">
                     <label for="select_epi"> Epi </label>
                     <select class="form-select" name="epi_id" id="select_epi" required>
-                        <option value="" selected hidden> Selecione o epi </option>
+                        <option value="" selected hidden> Selecione o EPI </option>
                         @foreach($epis as $epi)
                             <option value="{{$epi->id}}"> {{ $epi->nome }} </option>
                         @endforeach
