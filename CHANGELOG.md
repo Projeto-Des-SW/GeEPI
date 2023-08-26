@@ -1,6 +1,19 @@
 # Release Notes
 
-## [Unreleased](https://github.com/laravel/laravel/compare/v10.2.0...10.x)
+## [Unreleased](https://github.com/laravel/laravel/compare/1.1...main)
+
+## [1.1](https://github.com/laravel/laravel/compare/v10.2.0...1.1) - 2023-08-26
+
+- Validates de Fiscal, Setor, Colaborador, EPI.
+- Inserção do CRUD de colaborador ao perfil do fiscal.
+- Inserção de nova tabela ao MER para registro de movimentação de EPIs.
+- Funcionalidade do registro de movimentação dos EPIs.
+- Funcionalidade de entrada e saída de EPIs
+- Funcionalidade de editar perfil de administrador e fiscal.
+- Funcionalidade de buscar nas index de fiscal, colaborador e EPI.
+- Funcionalidade de alteração de senha do usuário no sistema.
+- Funcionalidade de recuperação de senha via e-mail.
+- Index do estoque dos EPIs.
 
 ## [v10.2.0](https://github.com/laravel/laravel/compare/v10.1.1...v10.2.0) - 2023-05-05
 
