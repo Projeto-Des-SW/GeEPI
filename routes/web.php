@@ -108,7 +108,13 @@ Route::middleware('checkAdministradorFiscal')->group( function(){
         Route::get('/delete/{colaborador_id}', [ColaboradorController::class, 'delete'])->name('colaborador.delete');
     });
 
-    Route::get('/usuario/edit', [UserController::class, 'edit'])->name('usuario.editar_perfil');
-    Route::post('/usuario/update', [UserController::class, 'update'])->name('usuario.update');
+    Route::prefix('usuario')->group( function()
+    {
+        Route::get('/edit', [UserController::class, 'edit'])->name('usuario.editar_perfil');
+        Route::post('/update', [UserController::class, 'update'])->name('usuario.update');
+
+        Route::get('/alterar_senha', [UserController::class, 'alterar_senha'])->name('usuario.alterar_senha');
+        Route::post('/senha/update', [UserController::class, 'senha_update'])->name('usuario.senha_update');
+    });
 });
 
