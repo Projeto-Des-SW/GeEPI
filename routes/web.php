@@ -7,6 +7,7 @@ use App\Http\Controllers\FiscalController;
 use App\Http\Controllers\MovimentoEpiController;
 use App\Http\Controllers\SetorController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -105,7 +106,9 @@ Route::middleware('checkAdministradorFiscal')->group( function(){
         Route::post('/update', [ColaboradorController::class, 'update'])->name('colaborador.update');
 
         Route::get('/delete/{colaborador_id}', [ColaboradorController::class, 'delete'])->name('colaborador.delete');
-
     });
+
+    Route::get('/usuario/edit', [UserController::class, 'edit'])->name('usuario.editar_perfil');
+    Route::post('/usuario/update', [UserController::class, 'update'])->name('usuario.update');
 });
 
