@@ -12,7 +12,7 @@
             </div>
 
             <div class="col-md-2">
-                <a>
+                <a href="{{ route('estoque.index') }}">
                     <img style="width: 100%" src="/images/home/gerenciar_estoque_icon.svg">
                 </a>
             </div>
