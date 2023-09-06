@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('quantidade');
             $table->string('descricao');
             $table->foreignId('epi_id')->constrained('epis');
+            $table->date('data_movimento');
             $table->timestamps();
         });
     }

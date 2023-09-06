@@ -47,7 +47,7 @@
             </div>
 
             <div class="col-md-2">
-                <a>
+                <a href="{{ route('relatorio.escolha') }}">
                     <img style="width: 100%" src="/images/home/relatorios_icon.svg">
                 </a>
             </div>

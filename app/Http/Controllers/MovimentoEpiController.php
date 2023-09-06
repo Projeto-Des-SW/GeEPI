@@ -66,6 +66,7 @@ class MovimentoEpiController extends Controller
             $movimento->quantidade = $request->quantidade;
             $movimento->descricao = $request->descricao;
             $movimento->epi_id = $request->epi_id;
+            $movimento->data_movimento = Carbon::now()->format('Y-m-d');
 
             $estoque->update();
 
@@ -83,6 +84,7 @@ class MovimentoEpiController extends Controller
                 $movimento->quantidade = $request->quantidade;
                 $movimento->descricao = $request->descricao;
                 $movimento->epi_id = $request->epi_id;
+                $movimento->data_movimento = Carbon::now()->format('Y-m-d');
 
                 $estoque->update();
 
