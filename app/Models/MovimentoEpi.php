@@ -11,5 +11,10 @@ class MovimentoEpi extends Model
 
     protected $table = 'movimento_epis';
 
-    protected $fillable = ['tipo', 'quantidade', 'descricao', 'epi_id'];
+    protected $fillable = ['tipo', 'quantidade', 'descricao', 'epi_id', 'data_movimento'];
+
+    public function epi()
+    {
+        return $this->belongsTo(Epi::class);
+    }
 }

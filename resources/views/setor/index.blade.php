@@ -42,7 +42,7 @@
                                         <img src="/images/funcionalidades/edit.svg">
                                     </a>
 
-                                    <a onclick="return confirm('Você tem certeza que deseja apagar este setor?')" href="{{ route('setor.delete', ['setor_id' => $setor->id]) }}" class="m-3" onclick="return confirm('Tem certeza de que deseja excluir este item?')">
+                                    <a onclick="return confirm('Você tem certeza que deseja apagar este setor?')" href="{{ route('setor.delete', ['setor_id' => $setor->id]) }}" class="m-3")">
                                         <img src="/images/funcionalidades/delete.svg">
                                     </a>
                                 </td>

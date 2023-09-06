@@ -5,6 +5,7 @@ use App\Http\Controllers\EpiController;
 use App\Http\Controllers\EstoqueController;
 use App\Http\Controllers\FiscalController;
 use App\Http\Controllers\MovimentoEpiController;
+use App\Http\Controllers\RelatorioController;
 use App\Http\Controllers\SetorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -88,7 +89,12 @@ Route::middleware('checkAdministrador')->group( function()
 
     });
 
+    Route::prefix('administrador/relatorio')->group( function()
+    {
+        Route::get('/escolha', [RelatorioController::class, 'create'])->name('relatorio.escolha');
 
+        Route::post('/gerar', [RelatorioController::class, 'gerar'])->name('relatorio.gerar');
+    });
 
 });
 
