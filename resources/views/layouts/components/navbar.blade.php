@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md" style="background-color: #1C3751">
-    <div class="container">
+    <div class="container w-100 d-flex align-items-center justify-content-around">
         <a class="navbar-brand" href="{{ route('home') }}">
             <img class="logo" src="/images/layouts/logo_geepi.svg">
         </a>
@@ -11,28 +11,32 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav me-auto">
 
-            </ul>
+
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
                 @guest
-                @if (Route::has('login'))
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                </li>
-                @endif
+                    @if (Route::has('login'))
+                        <ul class="navbar-brand">
+                            <ul id="menu_normal" class="navbar-nav h-100">
+                                <li><a class="nav-link" href="/login" style="color: white;">Início</a></li>
+                                <li><a class="nav-link" href="/sobre" style="color: white;">Sobre</a></li>
+                            </ul>
+                        </ul>
+                    @endif
 
-                @if (Route::has('register'))
+
+
+                {{-- @if (Route::has('register'))
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                 </li>
                 @endif
+                --}}
                 @else
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
