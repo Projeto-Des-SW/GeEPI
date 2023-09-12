@@ -1,0 +1,42 @@
+/* Estilo para o cabeçalho da tabela */
+table.table-bordered thead {
+    background-color: #AD7210;
+    color: white; /* Texto no cabeçalho em branco para contraste */
+}
+
+/* Estilo para fonte em negrito (bold) */
+.bold-text {
+    font-weight: bold;
+}
+
+/* Remover as bordas das células da tabela */
+table.table-bordered td,
+table.table-bordered th {
+    border: none;
+}
+
+/* Estilos para linhas alternadas */
+table.table-bordered tbody tr:nth-child(odd) {
+    background-color: #ffffff; /* Cor de fundo para linhas ímpares */
+}
+
+table.table-bordered tbody tr:nth-child(even) {
+    background-color: #eeff; /* Cor de fundo para linhas pares */
+}
+
+/* Adicionar uma linha horizontal na parte inferior de cada linha da tabela */
+table.table-bordered tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+/*
+@font-face {
+    font-family: 'JejuGothic';
+    src: url('{{ asset('fonts/jejugothicregular.otf') }}') format('opentype');
+    src: url('public/fonts/jejugothicregular.ttf');
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'JejuGothic', sans-serif;
+}
