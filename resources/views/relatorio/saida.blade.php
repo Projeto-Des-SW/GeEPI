@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title >Relatório: Saída de EPIs</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/relatorios/style.css">
 </head>
 <body>
 <div class="container">
-    <h1 class="mt-4 mb-4" style="text-align: center">Relatório: Saída de EPIs</h1>
-
-    <h5 class="mt-4 mb-4" style="text-align: center">Período: {{ $request->data_inicio }} a {{ $request->data_fim }}</h5>
+    <img align="right" src="images\relatorios\logo_geepi_dourado.png" width="200px" height="140px">
+    <h3 class="mt-4 mb-4 bold-text">Relatório: Saída de EPIs</h3>
+    <h5 class="mt-4 mb-4 bold-text">Período: {{ $request->data_inicio }} a {{ $request->data_fim }}</h5>
 
     <table class="table table-bordered">
         <thead>
