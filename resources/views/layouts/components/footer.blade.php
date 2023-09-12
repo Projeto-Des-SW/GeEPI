@@ -31,15 +31,15 @@
 
 
                 <div class="w-75 col-12 d-flex align-items-center justify-content-evenly">
-                    <a href="mailto:lmts@ufape.br" target="_blank" class="text-icons">
+                    <a href="" target="_blank" class="text-icons">
                         <img class="logo-redes" src="/images/layouts/email.svg" style="width: 120%">
                     </a>
 
-                    <a href="https://www.instagram.com/lmts_ufape/" target="_blank" class="text-icons">
+                    <a href="https://www.instagram.com/" target="_blank" class="text-icons">
                         <img class="logo-redes" src="/images/layouts/instagram.svg" style="width: 120%">
                     </a>
 
-                    <a href="https://www.facebook.com/LMTSUFAPE/" target="_blank" class="text-icons">
+                    <a href="https://www.youtube.com/" target="_blank" class="text-icons">
                         <img class="logo-redes"src="/images/layouts/youtube.svg" style="width: 120%">
                     </a>
                 </div>
