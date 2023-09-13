@@ -31,9 +31,6 @@ class RelatorioController extends Controller
      */
     public function gerar(Request $request)
     {
-        //$request->data_inicio = Carbon::parse($request->data_inicio)->format('d/m/Y');
-        //$request->data_fim = Carbon::parse($request->data_fim)->format('d/m/Y');
-
         if ($request->tipo_relatorio == 'entrada')
         {
             $movimento_epis = MovimentoEpi::where('tipo', 'entrada')->where('data_movimento', '>=', $request->data_inicio)->
@@ -49,6 +46,9 @@ class RelatorioController extends Controller
         {
             $movimento->data_movimento = Carbon::parse($movimento->data_movimento)->format('d/m/Y');
         }
+
+        $request->data_inicio = Carbon::parse($request->data_inicio)->format('d/m/Y');
+        $request->data_fim = Carbon::parse($request->data_fim)->format('d/m/Y');
 
         $pdf = Pdf::loadView('relatorio.' . $request->tipo_relatorio, compact('movimento_epis', 'request'));
 
