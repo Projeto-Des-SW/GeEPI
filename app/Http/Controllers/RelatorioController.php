@@ -31,8 +31,8 @@ class RelatorioController extends Controller
      */
     public function gerar(Request $request)
     {
-        $request->data_inicio = Carbon::parse($request->data_inicio)->format('d/m/Y');
-        $request->data_fim = Carbon::parse($request->data_fim)->format('d/m/Y');
+        //$request->data_inicio = Carbon::parse($request->data_inicio)->format('d/m/Y');
+        //$request->data_fim = Carbon::parse($request->data_fim)->format('d/m/Y');
 
         if ($request->tipo_relatorio == 'entrada')
         {
