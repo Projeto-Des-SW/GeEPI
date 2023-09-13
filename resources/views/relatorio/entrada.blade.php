@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container">
-    <img align="right" src="images\relatorios\logo_geepi_dourado.png" width="200px" height="140px">
+    <img align="right" src="{{ "images" . DIRECTORY_SEPARATOR . "relatorios" . DIRECTORY_SEPARATOR . "logo_geepi_dourado.png" }}" width="200px" height="140px">
     <h3 class="mt-4 mb-4 bold-text">Relatório: Entrada de EPIs</h3>
     <h5 class="mt-4 mb-4 bold-text">Período: {{ $request->data_inicio }} a {{ $request->data_fim }}</h5>
 
