@@ -22,7 +22,7 @@
 
 
     <!-- Scripts -->
-    @vite(['resources' . DIRECTORY_SEPARATOR . 'sass' . DIRECTORY_SEPARATOR . 'app.scss', 'resources' . 'js' . DIRECTORY_SEPARATOR . 'app.js'])
+    @vite(['resources' . DIRECTORY_SEPARATOR . 'sass' . DIRECTORY_SEPARATOR . 'app.scss', 'resources' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'app.js'])
 
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
