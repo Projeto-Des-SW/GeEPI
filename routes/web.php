@@ -8,6 +8,7 @@ use App\Http\Controllers\MovimentoEpiController;
 use App\Http\Controllers\RelatorioController;
 use App\Http\Controllers\SetorController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SolicitacaoController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -128,3 +129,22 @@ Route::middleware('checkAdministradorFiscal')->group( function(){
     });
 });
 
+
+Route::middleware('checkFiscal')->group( function()
+{
+    Route::prefix('fiscal/solicitacao')->group(function ()
+    {
+        Route::get('/create', [SolicitacaoController::class, 'create'])->name('solicitacao.create');
+        Route::post('/store', [SolicitacaoController::class, 'store'])->name('solicitacao.store');
+
+        //Route::get('/search', [ColaboradorController::class, 'search'])->name('colaborador.search');
+
+        //Route::get('/create', [ColaboradorController::class, 'create'])->name('colaborador.create');
+        //Route::post('/store', [ColaboradorController::class, 'store'])->name('colaborador.store');
+
+        //Route::get('/colaborador/{colaborador_id}', [ColaboradorController::class, 'edit'])->name('colaborador.edit');
+        //Route::post('/update', [ColaboradorController::class, 'update'])->name('colaborador.update');
+
+        //Route::get('/delete/{colaborador_id}', [ColaboradorController::class, 'delete'])->name('colaborador.delete');
+    });
+});

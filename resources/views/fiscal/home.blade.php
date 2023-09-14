@@ -7,7 +7,7 @@
             <div class="col-md-1"> </div>
 
             <div class="col-md-2">
-                <a>
+                <a href="{{ route('solicitacao.create') }}">
                     <img style="width: 125%" src="/images/home/solicitar_epi_icon.svg">
                 </a>
             </div>
