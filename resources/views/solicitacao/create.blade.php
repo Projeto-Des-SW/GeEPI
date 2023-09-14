@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h3 class="text-center"> <b> Nova Solicitação </b> </h3>
+        <h3 class="text-center"> <b> Solicitar EPIs </b> </h3>
 
         <form method="POST" action="{{ route('solicitacao.store') }}" id="solicitacao-form" >
             @csrf
