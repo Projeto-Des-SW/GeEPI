@@ -24,18 +24,33 @@
                 <a class="btn btn-success" href="{{ route('fiscal.create') }}"> Cadastrar </a>
             </div>
         </div>
+
         <br>
 
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10">
-                <div class="container custom-container" style="background-color: #AD7210;" >
+                <div class="container custom-container" style="background-color: #AD7210;">
                     <br>
-                    <div class="col-md-1"></div>
-                    <div class="col-md-5">
-                        <form action="{{ route('fiscal.search') }}" method="GET" class="mb-3">
-                            <div class="input-group">
-                                <input type="text" class="form-control rounded-pill" name="search" placeholder="Pesquisar por nome..." >
+                    <div class="col-md-6">
+                        <form action="{{ route('fiscal.search') }}" method="GET">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <select class="form-select rounded-pill" name="filtro" id="select_filtro">
+                                        <option value="2" style="text-align: center" selected>NOME</option>
+                                        <option value="1" style="text-align: center">CPF</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-9" id="filtro_nome">
+                                    <input type="text" class="form-control rounded-pill" name="search_nome" placeholder="Pesquisar por nome...">
+                                </div>
+
+                                <div class="col-md-9" id="filtro_cpf" style="display: none">
+                                    <input type="text" class="form-control rounded-pill" name="search_cpf" placeholder="Pesquisar por cpf..." id="filtro_cpf">
+                                </div>
+
+                                <button type="submit" class="btn btn-primary" hidden>Pesquisar</button>
+
                             </div>
                         </form>
                     </div>
@@ -78,4 +93,20 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $("#select_filtro").change(function ()
+        {
+            if($("#select_filtro").val() == 1)
+            {
+                document.getElementById('filtro_cpf').style.display = 'block';
+                document.getElementById('filtro_nome').style.display = 'none';
+            }
+            else if($("#select_filtro").val() == 2)
+            {
+                document.getElementById('filtro_cpf').style.display = 'none';
+                document.getElementById('filtro_nome').style.display = 'block';
+            }
+        });
+    </script>
 @endsection

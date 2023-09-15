@@ -63,12 +63,21 @@ class FiscalController extends Controller
     }
     public function search(Request $request)
     {
-        $searchTerm = $request->input('search'); // Obtém o termo de pesquisa do formulário
-        $request->search = strtolower($request->search);
-        $usuarios = User::where('tipo_usuario_id', '2')->where('nome', 'ILIKE', '%' . $searchTerm . '%')->get();
+        if ($request->filtro == 1) {
+            $searchTerm = $request->input('search_cpf'); // Obtém o termo de pesquisa do formulário
+            $usuarios = User::where('tipo_usuario_id', 2)->where('cpf', 'ILIKE', '%' . $searchTerm . '%')->get();
+        }
+        elseif($request->filtro == 2)
+        {
+            $searchTerm = $request->input('search_nome'); // Obtém o termo de pesquisa do formulário
+            $request->search_nome = strtolower($request->search_nome);
+            $usuarios = User::where('tipo_usuario_id', '2')->where('nome', 'ILIKE', '%' . $searchTerm . '%')->get();
+        }
 
         return view('usuario.fiscal_index', compact('usuarios'));
     }
+
+
 
     public function edit($fiscal_id)
     {
