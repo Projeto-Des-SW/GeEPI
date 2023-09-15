@@ -101,6 +101,11 @@ Route::middleware('checkAdministrador')->group( function()
         Route::post('/gerar', [RelatorioController::class, 'gerar'])->name('relatorio.gerar');
     });
 
+    Route::prefix('administrador/solicitacao')->group( function()
+    {
+        Route::get('/analisar', [SolicitacaoController::class, 'analisar'])->name('solicitacao.analisar');
+
+    });
 });
 
 Route::middleware('checkAdministradorFiscal')->group( function(){

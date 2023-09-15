@@ -17,7 +17,7 @@ class SolicitacaoController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -58,6 +58,14 @@ class SolicitacaoController extends Controller
 
         return redirect(route('home'))->with(['message' => 'Solicitação realizada com sucesso!']);
     }
+
+    public function analisar()
+    {
+        $solicitacoes = Solicitacao::where('status','Em Análise')->get()->sortBy('id');
+        return view('solicitacao.analisar', compact('solicitacoes'));
+
+    }
+
 
     /**
      * Display the specified resource.
