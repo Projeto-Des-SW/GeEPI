@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Colaborador;
 use App\Models\Epi;
+use App\Models\ItemSolicitacao;
+use App\Models\Solicitacao;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,10 +37,26 @@ class SolicitacaoController extends Controller
      */
     public function store(Request $request)
     {
-        for($count = 0; $count < sizeof($request->colaborador); $count++)
+        $solicitacao = Solicitacao::create([
+            'status' => 'Em Análise',
+            'observacao_fiscal' => $request->observacao_fiscal,
+            'user_id' => Auth::user()->id
+        ]);
+
+        for($count = 0; $count < sizeof($request->colaborador_id); $count++)
         {
-            dd($request->colaborador[$count+1], $request->epi[$count+1], $request->quantidade[$count+1]);
+            $item_solicitacao = new ItemSolicitacao();
+
+            $item_solicitacao->quantidade_solicitada = $request->quantidade[$count];
+            $item_solicitacao->solicitacao_id = $solicitacao->id;
+            $item_solicitacao->user_id = Auth::user()->id;
+            $item_solicitacao->epi_id = $request->epi_id[$count];
+            $item_solicitacao->colaborador_id = $request->colaborador_id[$count];
+
+            $item_solicitacao->save();
         }
+
+        return redirect(route('home'))->with(['message' => 'Solicitação realizada com sucesso!']);
     }
 
     /**

@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('item_solicitacaos', function (Blueprint $table) 
+        Schema::create('item_solicitacaos', function (Blueprint $table)
         {
             $table->id();
             $table->integer('quantidade_solicitada');
-            $table->integer('quantidade_aprovada');
+            $table->integer('quantidade_aprovada')->nullable();
             $table->foreignId('solicitacao_id')->constrained('solicitacaos');
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('epi_id')->constrained('epis');

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class ItemSolicitacao extends Model
 {
     use HasFactory;
+
+    public function epi()
+    {
+        return $this->hasOne(Epi::class);
+    }
 }
