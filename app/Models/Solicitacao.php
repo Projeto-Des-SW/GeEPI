@@ -11,4 +11,9 @@ class Solicitacao extends Model
 
     protected $table = 'solicitacaos';
     protected $fillable = ['status', 'observacao_fiscal', 'observacao_admin', 'data_aprovacao', 'data_finalzacao', 'user_id'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
