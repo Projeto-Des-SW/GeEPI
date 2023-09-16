@@ -63,7 +63,22 @@ class SolicitacaoController extends Controller
     {
         $solicitacoes = Solicitacao::where('status','Em Análise')->get()->sortBy('id');
         return view('solicitacao.analisar', compact('solicitacoes'));
+    }
 
+    public function epis_solicitacao($solicitacao)
+    {
+        $epis_solicitacao = ItemSolicitacao::where('solicitacao_id', $solicitacao)
+            ->join('epis', 'epis.id', '=', 'item_solicitacaos.epi_id')
+            ->join('colaboradors', 'colaboradors.id', '=', 'item_solicitacaos.colaborador_id')
+            ->select('epis.nome AS nome_epi', 'colaboradors.nome AS nome_colaborador', 'item_solicitacaos.*')->get();
+
+        return response()->json($epis_solicitacao);
+    }
+
+
+    public function finalizar_solicitacao()
+    {
+        return back()->with(['message' => 'Solicitação finalizada com sucesso']);
     }
 
 
