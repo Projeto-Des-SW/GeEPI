@@ -61,10 +61,15 @@
         <div class="row">
             <div class="col-md-1"> </div>
             <div class="col-md-10">
-                <table class="table">
+                <table class="table" id="tabela_fiscal">
                     <thead>
                     <tr style="background-color: #AD7210; color: white;">
-                        <th scope="col" class="text-center">Nome</th>
+                        <th scope="col" class="text-center">
+                            Nome
+                            <a href="#" class="sort-icon" data-sort="asc">
+                                <i class="fas fa-sort text-white"></i>
+                            </a>
+                        </th>
                         <th scope="col" class="text-center">CPF</th>
                         <th scope="col" class="text-center">Setor</th>
                         <th scope="col" class="text-center">Editar/Apagar</th>
@@ -107,6 +112,35 @@
                 document.getElementById('filtro_cpf').style.display = 'none';
                 document.getElementById('filtro_nome').style.display = 'block';
             }
+        });
+
+
+        $(document).ready(function() {
+            var order = 'asc'; // Inicialmente, a ordem é ascendente
+
+            $(".sort-icon").click(function() {
+                if (order === 'asc') {
+                    // Ordenar em ordem ascendente (A-Z)
+                    var sortedRows = $('#tabela_fiscal tbody tr').toArray().sort(function(a, b) {
+                        var aText = $(a).find('td:eq(0)').text().toUpperCase();
+                        var bText = $(b).find('td:eq(0)').text().toUpperCase();
+                        return aText.localeCompare(bText);
+                    });
+                    $('#tabela_fiscal tbody').empty().append(sortedRows);
+                    order = 'desc';
+                    $(this).find('i').removeClass('fa-sort-alpha-up').addClass('fa-sort-alpha-down');
+                } else {
+                    // Ordenar em ordem descendente (Z-A)
+                    var sortedRows = $('#tabela_fiscal tbody tr').toArray().sort(function(a, b) {
+                        var aText = $(a).find('td:eq(0)').text().toUpperCase();
+                        var bText = $(b).find('td:eq(0)').text().toUpperCase();
+                        return bText.localeCompare(aText);
+                    });
+                    $('#tabela_fiscal tbody').empty().append(sortedRows);
+                    order = 'asc';
+                    $(this).find('i').removeClass('fa-sort-alpha-down').addClass('fa-sort-alpha-up');
+                }
+            });
         });
     </script>
 @endsection
