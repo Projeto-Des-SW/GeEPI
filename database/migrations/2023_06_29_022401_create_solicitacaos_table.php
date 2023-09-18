@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('status');
             $table->string('observacao_fiscal')->nullable();
             $table->string('observacao_administrador')->nullable();
+            $table->date('data_criado')->nullable();
             $table->date('data_aprovacao')->nullable();
             $table->date('data_finalizacao')->nullable();
             $table->foreignId('user_id')->constrained('users');

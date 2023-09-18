@@ -136,6 +136,9 @@ Route::middleware('checkAdministradorFiscal')->group( function(){
         Route::get('/alterar_senha', [UserController::class, 'alterar_senha'])->name('usuario.alterar_senha');
         Route::post('/senha/update', [UserController::class, 'senha_update'])->name('usuario.senha_update');
     });
+
+    Route::get('/solicitacao/get/epis/{solicitacao}', [SolicitacaoController::class, 'epis_solicitacao'])->name('solicitacao.epis');
+
 });
 
 
@@ -145,6 +148,7 @@ Route::middleware('checkFiscal')->group( function()
     {
         Route::get('/create', [SolicitacaoController::class, 'create'])->name('solicitacao.create');
         Route::post('/store', [SolicitacaoController::class, 'store'])->name('solicitacao.store');
+        Route::get('/consultar', [SolicitacaoController::class, 'consultar'])->name('solicitacao.consultar');
 
         //Route::get('/search', [ColaboradorController::class, 'search'])->name('colaborador.search');
 

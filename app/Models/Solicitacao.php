@@ -10,7 +10,7 @@ class Solicitacao extends Model
     use HasFactory;
 
     protected $table = 'solicitacaos';
-    protected $fillable = ['status', 'observacao_fiscal', 'observacao_admin', 'data_aprovacao', 'data_finalzacao', 'user_id'];
+    protected $fillable = ['status', 'observacao_fiscal', 'observacao_admin', 'data_criado', 'data_aprovacao', 'data_finalzacao', 'user_id'];
 
     public function user()
     {

@@ -7,6 +7,7 @@ use App\Models\Colaborador;
 use App\Models\Epi;
 use App\Models\ItemSolicitacao;
 use App\Models\Solicitacao;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -40,7 +41,8 @@ class SolicitacaoController extends Controller
         $solicitacao = Solicitacao::create([
             'status' => 'Em Análise',
             'observacao_fiscal' => $request->observacao_fiscal,
-            'user_id' => Auth::user()->id
+            'user_id' => Auth::user()->id,
+            'data_criado' => Carbon::now()->format('Y-m-d')
         ]);
 
         for($count = 0; $count < sizeof($request->colaborador_id); $count++)
@@ -62,7 +64,26 @@ class SolicitacaoController extends Controller
     public function analisar()
     {
         $solicitacoes = Solicitacao::where('status','Em Análise')->get()->sortBy('id');
+        foreach ($solicitacoes as $solicitacao){
+
+            $solicitacao->data_criado = (Carbon::parse($solicitacao->data_criado)->format('d/m/Y'));
+
+        }
         return view('solicitacao.analisar', compact('solicitacoes'));
+    }
+
+    public function consultar()
+    {
+        $solicitacoes = Solicitacao::where('user_id',Auth::user()->id)->orderBy('created_at', 'desc')->get();
+
+
+        foreach ($solicitacoes as $solicitacao){
+
+            $solicitacao->data_criado = (Carbon::parse($solicitacao->data_criado)->format('d/m/Y'));
+
+        }
+        return view( 'solicitacao.consultar', compact( 'solicitacoes'));
+
     }
 
     public function epis_solicitacao($solicitacao)
