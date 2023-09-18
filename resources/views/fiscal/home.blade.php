@@ -15,7 +15,7 @@
             <div class="col-md-2"> </div>
 
             <div class="col-md-2">
-                <a>
+                <a href="{{route('solicitacao.consultar')}}">
                     <img style="width: 125%" src="/images/home/consultar_solicitacao_icon.svg">
                 </a>
             </div>

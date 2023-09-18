@@ -45,11 +45,10 @@
                     <thead>
                     <tr style="background-color: #AD7210; color: white;">
                         <th scope="col" class="text-center">Nº da Solicitação</th>
-                        <th scope="col" class="text-center">Fiscal</th>
                         <th scope="col" class="text-center">Data</th>
                         <th scope="col" class="text-center">Setor</th>
                         <th scope="col" class="text-center">Status</th>
-                        <th scope="col" class="text-center">Ação</th>
+                        <th scope="col" class="text-center">Visualizar Itens</th>
                     </tr>
                     </thead>
 
@@ -57,13 +56,12 @@
                     @foreach($solicitacoes as $solicitacao)
                         <tr>
                             <td class="text-center"><b>{{ $solicitacao->id }}</b> </td>
-                            <td class="text-center"><b>{{ $solicitacao->user->nome }}</b></td>
                             <td class="text-center"><b>{{ $solicitacao->data_criado }}</b></td>
                             <td class="text-center"><b>{{ $solicitacao->user->setor->nome }}</b></td>
                             <td class="text-center"><b>{{ $solicitacao->status }}</b></td>
                             <td class="text-center">
                                 <button class="btn btn-secondary epis_solicitacao" data-bs-toggle="modal" data-bs-target="#exampleModal" id="epis_solicitacao" data-solicitacao="{{$solicitacao->id}}">
-                                    <b>Analisar</b>
+                                <b>Ver</b>
                                 </button>
                             </td>
                         </tr>
@@ -79,7 +77,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title mx-auto" id="exampleModalLabel"> <b>Análise de Solicitação</b> </h4>
+                    <h4 class="modal-title mx-auto" id="exampleModalLabel"> <b>Análise de Solicitação<b> </h4>
                     <button type="buttonodal-title " class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form class="container form" method="POST" action="{{ route('solicitacao.finalizar') }}">
@@ -90,7 +88,7 @@
                             <th scope="col" class="text-center">Colaborador</th>
                             <th scope="col" class="text-center">EPI</th>
                             <th scope="col" class="text-center">Quant. Solicitada</th>
-                            <!-- <th scope="col" class="text-center">Quant. Aprovada</th> -->
+
                         </tr>
                         </thead>
 
@@ -98,24 +96,6 @@
                         </tbody>
                     </table>
 
-                    <div class="row">
-                        <div class="col-md-1"> </div>
-
-                        <div class="col-md-12">
-                            <label for="observacao_administrador"> <b>Observações:</b> </label>
-                            <textarea class="form-control" id="observacao_administrador" name="observacao_administrador" rows="3"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="modal-footer row justify-content-center">
-                        <div class="col-1"></div>
-                        <div class="col-3">
-                            <button name="action" value="reprovar" type="submit" class="btn btn-danger">Reprovar</button>
-                        </div>
-                        <div class="col-3">
-                            <button name="action" value="aprovar" type="submit" class="btn btn-success">Aprovar</button>
-                        </div>
-                    </div>
                 </form>
 
             </div>
