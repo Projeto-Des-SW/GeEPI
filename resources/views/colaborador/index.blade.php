@@ -50,7 +50,6 @@
                 <table class="table">
                     <thead>
                     <tr style="background-color: #AD7210; color: white;">
-                        <th scope="col">#</th>
                         <th scope="col" class="text-center">Nome</th>
                         <th scope="col" class="text-center">Setor</th>
                         <th scope="col" class="text-center">Editar/Apagar</th>
@@ -60,7 +59,6 @@
                     <tbody>
                     @foreach($colaboradores as $colaborador)
                         <tr onmouseenter="">
-                            <th scope="row"></th>
                             <td class="text-center">{{ $colaborador->nome }} </td>
                             <td class="text-center">{{ $colaborador->setor->nome }}</td>
                             <td class="text-center">
