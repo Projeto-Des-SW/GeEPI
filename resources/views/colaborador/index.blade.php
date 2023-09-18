@@ -53,7 +53,7 @@
                         <th scope="col" class="text-center">
                             Nome
                             <a href="#" class="sort-icon" data-sort="asc">
-                                <i class="fas fa-sort-alpha-up"></i>
+                                <i class="fas fa-sort text-white"></i>
                             </a>
                         </th>
                         <th scope="col" class="text-center">Setor</th>

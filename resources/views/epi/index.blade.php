@@ -47,11 +47,15 @@
         <div class="row">
             <div class="col-md-1"> </div>
             <div class="col-md-10">
-                <table class="table">
+                <table class="table" id="tabela_epi">
                     <thead>
                         <tr style="background-color: #AD7210; color: white;">
-                            <th scope="col">#</th>
-                            <th scope="col" class="text-center">EPI</th>
+                            <th scope="col" class="text-center">
+                                EPI
+                                <a href="#" class="sort-icon" data-sort="asc">
+                                    <i class="fas fa-sort text-white"></i>
+                                </a>
+                            </th>
                             <th scope="col" class="text-center">Quantidade Mínima</th>
                             <th scope="col" class="text-center">Certificado de Aprovação- CA</th>
                             <th scope="col" class="text-center">Editar/Apagar</th>
@@ -61,7 +65,6 @@
                     <tbody>
                         @foreach($epis as $epi)
                             <tr>
-                                <th scope="row"></th>
                                 <td class="text-center">{{ $epi->nome }} </td>
                                 <td class="text-center">{{ $epi->quantidade_minima }}</td>
                                 <td class="text-center">{{ $epi->certificado_aprovacao }}</td>
@@ -81,4 +84,36 @@
             </div>
         </div>
     </div>
+
+
+
+    <script>
+        $(document).ready(function() {
+            var order = 'asc'; // Inicialmente, a ordem é ascendente
+
+            $(".sort-icon").click(function() {
+                if (order === 'asc') {
+                    // Ordenar em ordem ascendente (A-Z)
+                    var sortedRows = $('#tabela_epi tbody tr').toArray().sort(function(a, b) {
+                        var aText = $(a).find('td:eq(0)').text().toUpperCase();
+                        var bText = $(b).find('td:eq(0)').text().toUpperCase();
+                        return aText.localeCompare(bText);
+                    });
+                    $('#tabela_epi tbody').empty().append(sortedRows);
+                    order = 'desc';
+                    $(this).find('i').removeClass('fa-sort-alpha-up').addClass('fa-sort-alpha-down');
+                } else {
+                    // Ordenar em ordem descendente (Z-A)
+                    var sortedRows = $('#tabela_epi tbody tr').toArray().sort(function(a, b) {
+                        var aText = $(a).find('td:eq(0)').text().toUpperCase();
+                        var bText = $(b).find('td:eq(0)').text().toUpperCase();
+                        return bText.localeCompare(aText);
+                    });
+                    $('#tabela_epi tbody').empty().append(sortedRows);
+                    order = 'asc';
+                    $(this).find('i').removeClass('fa-sort-alpha-down').addClass('fa-sort-alpha-up');
+                }
+            });
+        });
+    </script>
 @endsection
