@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Mail\SolicitacaoFinalizada;
 use App\Mail\SolicitacaoRealizada;
 use App\Models\Colaborador;
 use App\Models\Epi;
@@ -108,8 +109,16 @@ class SolicitacaoController extends Controller
     }
 
 
-    public function finalizar_solicitacao()
+    public function finalizar_solicitacao(Request $request)
     {
+        $solicitacao = Solicitacao::findOrFail($request->id);
+        $fiscal = User::findOrFail($solicitacao->user_id);
+
+        Mail::to($fiscal->email)->send(new SolicitacaoFinalizada([
+            'fiscal' => $fiscal,
+            'solicitacao' => $solicitacao
+        ]));
+
         return back()->with(['message' => 'Solicitação finalizada com sucesso']);
     }
 
@@ -145,4 +154,5 @@ class SolicitacaoController extends Controller
     {
         //
     }
+
 }

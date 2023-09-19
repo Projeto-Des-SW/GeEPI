@@ -82,7 +82,7 @@
                     <h4 class="modal-title mx-auto" id="exampleModalLabel"> <b>Análise de Solicitação</b> </h4>
                     <button type="buttonodal-title " class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form class="container form" method="POST" action="{{ route('solicitacao.finalizar') }}">
+                <form class="container form" method="POST" action="{{ route('solicitacao.finalizar') }}" id="form_finalizar_solicitacao">
                     @csrf
                     <table class="table">
                         <thead>
@@ -124,7 +124,25 @@
 
     <script>
         $('.epis_solicitacao').click(function () {
+            var formulario = document.getElementById("form_finalizar_solicitacao");
             var solicitacao = $(this).data('solicitacao');
+
+            var input = document.getElementById("input_id");
+
+            if(input)
+            {
+                formulario.removeChild(input);
+            }
+
+            var input_solicitacao = document.createElement("input");
+
+            input_solicitacao.type = "hidden";
+            input_solicitacao.name = "id";
+            input_solicitacao.value = solicitacao;
+            input_solicitacao.id = "input_id";
+
+            formulario.appendChild(input_solicitacao);
+
 
             $.ajax({
                 url: '/solicitacao/get/epis/' + solicitacao,
