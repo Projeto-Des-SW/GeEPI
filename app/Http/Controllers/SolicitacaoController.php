@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Mail\SolicitacaoRealizada;
 use App\Models\Colaborador;
 use App\Models\Epi;
 use App\Models\ItemSolicitacao;
 use App\Models\Solicitacao;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class SolicitacaoController extends Controller
 {
@@ -38,6 +41,8 @@ class SolicitacaoController extends Controller
      */
     public function store(Request $request)
     {
+        $adm = User::where('tipo_usuario_id', 1)->first();
+
         $solicitacao = Solicitacao::create([
             'status' => 'Em Análise',
             'observacao_fiscal' => $request->observacao_fiscal,
@@ -57,6 +62,12 @@ class SolicitacaoController extends Controller
 
             $item_solicitacao->save();
         }
+
+        Mail::to($adm->email)->send(new SolicitacaoRealizada([
+            'adm' => $adm,
+            'fiscal' => Auth::user(),
+            'solicitacao' => $solicitacao
+        ]));
 
         return redirect(route('home'))->with(['message' => 'Solicitação realizada com sucesso!']);
     }
