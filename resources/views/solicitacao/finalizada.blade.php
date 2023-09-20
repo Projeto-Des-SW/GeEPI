@@ -49,7 +49,7 @@
                         <th scope="col" class="text-center">Data</th>
                         <th scope="col" class="text-center">Setor</th>
                         <th scope="col" class="text-center">Status</th>
-                        <th scope="col" class="text-center">Ação</th>
+                        <th scope="col" class="text-center">Ver itens</th>
                     </tr>
                     </thead>
 
@@ -63,7 +63,7 @@
                             <td class="text-center"><b>{{ $solicitacao->status }}</b></td>
                             <td class="text-center">
                                 <button class="btn btn-secondary epis_solicitacao" data-bs-toggle="modal" data-bs-target="#exampleModal" id="epis_solicitacao" data-solicitacao="{{$solicitacao->id}}">
-                                    <b>Analisar</b>
+                                    <b>Ver</b>
                                 </button>
                             </td>
                         </tr>
@@ -98,23 +98,8 @@
                         </tbody>
                     </table>
 
-                    <div class="row">
-                        <div class="col-md-1"> </div>
-
-                        <div class="col-md-12">
-                            <label for="observacao_administrador"> <b>Observações:</b> </label>
-                            <textarea class="form-control" id="observacao_administrador" name="observacao_administrador" rows="3"></textarea>
-                        </div>
-                    </div>
-
                     <div class="modal-footer row justify-content-center">
                         <div class="col-1"></div>
-                        <div class="col-3">
-                            <button name="action" value="reprovar" type="submit" class="btn btn-danger">Reprovar</button>
-                        </div>
-                        <div class="col-3">
-                            <button name="action" value="aprovar" type="submit" class="btn btn-success">Aprovar</button>
-                        </div>
                     </div>
                 </form>
 
