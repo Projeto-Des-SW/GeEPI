@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Epi;
 use App\Models\MovimentoEpi;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
@@ -41,23 +42,42 @@ class RelatorioController extends Controller
             $movimento_epis = MovimentoEpi::where('tipo', 'saida')->where('data_movimento', '>=', $request->data_inicio)->
             where('data_movimento', '<=', $request->data_fim)->get();
         }
-
-        foreach($movimento_epis as $movimento)
+        elseif($request->tipo_relatorio == 'estoque_epis')
         {
-            $movimento->data_movimento = Carbon::parse($movimento->data_movimento)->format('d/m/Y');
+            $epis = Epi::all()->sortBy('id');
+
+            $pdf = Pdf::loadView('relatorio.' . $request->tipo_relatorio, compact('epis'));
+
+            $nomePDF = 'relatorio_' . $request->tipo_relatorio . '.pdf';
+
+            $pdf->set_option("dpi", 150);
+            $pdf->setPaper('a4');
+
+            return $pdf->stream($nomePDF);
+
         }
 
-        $request->data_inicio = Carbon::parse($request->data_inicio)->format('d/m/Y');
-        $request->data_fim = Carbon::parse($request->data_fim)->format('d/m/Y');
 
-        $pdf = Pdf::loadView('relatorio.' . $request->tipo_relatorio, compact('movimento_epis', 'request'));
+        if ($request->tipo_relatorio == 'entrada' or 'saida')
+        {
+            foreach($movimento_epis as $movimento)
+            {
+                $movimento->data_movimento = Carbon::parse($movimento->data_movimento)->format('d/m/Y');
+            }
 
-        $nomePDF = 'relatorio_' . $request->tipo_relatorio . '.pdf';
+            $request->data_inicio = Carbon::parse($request->data_inicio)->format('d/m/Y');
+            $request->data_fim = Carbon::parse($request->data_fim)->format('d/m/Y');
 
-        $pdf->set_option("dpi", 150);
-        $pdf->setPaper('a4');
+            $pdf = Pdf::loadView('relatorio.' . $request->tipo_relatorio, compact('movimento_epis', 'request'));
 
-        return $pdf->stream($nomePDF);
+            $nomePDF = 'relatorio_' . $request->tipo_relatorio . '.pdf';
+
+            $pdf->set_option("dpi", 150);
+            $pdf->setPaper('a4');
+
+            return $pdf->stream($nomePDF);
+        }
+
     }
 
     /**
