@@ -77,7 +77,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title mx-auto" id="exampleModalLabel"> <b>Análise de Solicitação<b> </h4>
+                    <h4 class="modal-title mx-auto" id="exampleModalLabel"> <b>Análise de Solicitação</b></h4>
                     <button type="buttonodal-title " class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form class="container form" method="POST" action="{{ route('solicitacao.finalizar') }}">

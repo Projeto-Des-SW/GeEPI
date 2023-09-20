@@ -22,7 +22,7 @@ class SolicitacaoController extends Controller
      */
     public function index()
     {
-
+        return view('solicitacao.index');
     }
 
     /**
@@ -82,6 +82,17 @@ class SolicitacaoController extends Controller
 
         }
         return view('solicitacao.analisar', compact('solicitacoes'));
+    }
+
+    public function finalizada()
+    {
+        $solicitacoes = Solicitacao::whereIn('status',['Aprovado', 'Rejeitado'])->get()->sortBy('id');
+        foreach ($solicitacoes as $solicitacao){
+
+            $solicitacao->data_criado = (Carbon::parse($solicitacao->data_criado)->format('d/m/Y'));
+
+        }
+        return view('solicitacao.finalizada', compact('solicitacoes'));
     }
 
     public function consultar()

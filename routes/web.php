@@ -105,6 +105,10 @@ Route::middleware('checkAdministrador')->group( function()
     {
         Route::get('/analisar', [SolicitacaoController::class, 'analisar'])->name('solicitacao.analisar');
 
+        Route::get('/index', [SolicitacaoController::class, 'index'])->name('solicitacao.index');
+
+        Route::get('/finalizada', [SolicitacaoController::class, 'finalizada'])->name('solicitacao.finalizada');
+
         Route::get('/get/epis/{solicitacao}', [SolicitacaoController::class, 'epis_solicitacao'])->name('solicitacao.epis');
 
         Route::post('/finalizar', [SolicitacaoController::class, 'finalizar_solicitacao'])->name('solicitacao.finalizar');

@@ -35,7 +35,7 @@
             <div class="col-md-3"> </div>
 
             <div class="col-md-2">
-                <a>
+                <a href="{{ route('solicitacao.index') }}">
                     <img style="width: 100%" src="/images/home/solicitacoes_icon.svg">
                 </a>
             </div>
