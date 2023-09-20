@@ -56,11 +56,11 @@
                     <tbody>
                     @foreach($solicitacoes as $solicitacao)
                         <tr>
-                            <td class="text-center"><b>{{ $solicitacao->id }}</b> </td>
-                            <td class="text-center"><b>{{ $solicitacao->user->nome }}</b></td>
-                            <td class="text-center"><b>{{ $solicitacao->data_criado }}</b></td>
-                            <td class="text-center"><b>{{ $solicitacao->user->setor->nome }}</b></td>
-                            <td class="text-center"><b>{{ $solicitacao->status }}</b></td>
+                            <td class="text-center">{{ $solicitacao->id }} </td>
+                            <td class="text-center">{{ $solicitacao->user->nome }}</td>
+                            <td class="text-center">{{ $solicitacao->data_criado }}</td>
+                            <td class="text-center">{{ $solicitacao->user->setor->nome }}</td>
+                            <td class="text-center">{{ $solicitacao->status }}</td>
                             <td class="text-center">
                                 <button class="btn btn-secondary epis_solicitacao" data-bs-toggle="modal" data-bs-target="#exampleModal" id="epis_solicitacao" data-solicitacao="{{$solicitacao->id}}">
                                     <b>Analisar</b>
@@ -79,7 +79,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title mx-auto" id="exampleModalLabel"> <b>Análise de Solicitação</b> </h4>
+                    <h4 class="modal-title" id="exampleModalLabel"> <b>Análise de Solicitação</b> </h4>
                     <button type="buttonodal-title " class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form class="container form" method="POST" action="{{ route('solicitacao.finalizar') }}" id="form_finalizar_solicitacao">
