@@ -11,6 +11,6 @@ class ItemSolicitacao extends Model
 
     public function epi()
     {
-        return $this->hasOne(Epi::class);
+        return $this->belongsTo(Epi::class);
     }
 }

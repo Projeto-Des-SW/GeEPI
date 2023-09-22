@@ -53,7 +53,7 @@
 
                             <br><br>
 
-                            Observações do Administrador: {{ $solicitacao->observacao_adiministrador }}
+                            Observações do Administrador: {{ $solicitacao->observacao_administrador }}
 
                         </p>
                     </td>

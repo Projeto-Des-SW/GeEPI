@@ -7,6 +7,7 @@ use App\Mail\SolicitacaoFinalizada;
 use App\Mail\SolicitacaoRealizada;
 use App\Models\Colaborador;
 use App\Models\Epi;
+use App\Models\Estoque;
 use App\Models\ItemSolicitacao;
 use App\Models\Solicitacao;
 use App\Models\User;
@@ -45,7 +46,7 @@ class SolicitacaoController extends Controller
         $adm = User::where('tipo_usuario_id', 1)->first();
 
         $solicitacao = Solicitacao::create([
-            'status' => 'Em Análise',
+            'status' => 'Em análise',
             'observacao_fiscal' => $request->observacao_fiscal,
             'user_id' => Auth::user()->id,
             'data_criado' => Carbon::now()->format('Y-m-d')
@@ -75,7 +76,7 @@ class SolicitacaoController extends Controller
 
     public function analisar()
     {
-        $solicitacoes = Solicitacao::where('status','Em Análise')->get()->sortBy('id');
+        $solicitacoes = Solicitacao::where('status','Em análise')->get()->sortBy('id');
         foreach ($solicitacoes as $solicitacao){
 
             $solicitacao->data_criado = (Carbon::parse($solicitacao->data_criado)->format('d/m/Y'));
@@ -86,7 +87,7 @@ class SolicitacaoController extends Controller
 
     public function finalizada()
     {
-        $solicitacoes = Solicitacao::whereIn('status',['Aprovado', 'Rejeitado'])->get()->sortBy('id');
+        $solicitacoes = Solicitacao::whereIn('status',['Aprovada', 'Rejeitada'])->get()->sortBy('id');
         foreach ($solicitacoes as $solicitacao){
 
             $solicitacao->data_criado = (Carbon::parse($solicitacao->data_criado)->format('d/m/Y'));
@@ -123,14 +124,57 @@ class SolicitacaoController extends Controller
     public function finalizar_solicitacao(Request $request)
     {
         $solicitacao = Solicitacao::findOrFail($request->id);
+        $itens_solicitacao = ItemSolicitacao::where('solicitacao_id', $solicitacao->id)->get();
+
         $fiscal = User::findOrFail($solicitacao->user_id);
+
+        $quantidade_itens = [];
+
+        if($request->action == "Aprovada")
+        {
+            foreach($itens_solicitacao as $item_solicitacao)
+            {
+                $item_id = $item_solicitacao->epi->id;
+                $quantidade_solicitada = $item_solicitacao->quantidade_solicitada;
+
+                if (!isset($quantidade_itens[$item_id]))
+                {
+                    $quantidade_itens[$item_id] = 0;
+                }
+
+                $quantidade_itens[$item_id] += $quantidade_solicitada;
+
+                if ($quantidade_itens[$item_id] > $item_solicitacao->epi->estoque->quantidade)
+                {
+                    return back()->with(['error_message' => 'Impossível aprovar! A quantidade de ' . $item_solicitacao->epi->nome .
+                        ' solicitados(as) é superior à quantidade em estoque!']);
+                }
+            }
+
+            foreach($itens_solicitacao as $item_solicitacao)
+            {
+                $estoque = Estoque::findOrFail($item_solicitacao->epi->estoque->id);
+
+                $estoque->quantidade -= $item_solicitacao->quantidade_solicitada;
+
+                $estoque->update();
+            }
+        }
+
+
+        $solicitacao->observacao_administrador = $request->observacao_administrador;
+        $solicitacao->status = $request->action;
+
+        $solicitacao->update();
+
 
         Mail::to($fiscal->email)->send(new SolicitacaoFinalizada([
             'fiscal' => $fiscal,
             'solicitacao' => $solicitacao
         ]));
 
-        return back()->with(['message' => 'Solicitação finalizada com sucesso']);
+
+        return back()->with(['message' => 'Solicitação finalzada!']);
     }
 
 
