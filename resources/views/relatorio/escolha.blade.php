@@ -17,6 +17,10 @@
                         <option value="entrada"> Entrada de EPI </option>
                         <option value="saida"> Saída de EPI </option>
                         <option value="estoque_epis"> Estoque de EPIs </option>
+<<<<<<< HEAD
+                        <option value="critico"> EPIs em estado crítico </option>
+=======
+>>>>>>> c35c17c17f5f782534e9c4ceb29eb12f4af7e145
                     </select>
                 </div>
             </div>
@@ -56,7 +60,7 @@
         <script type="text/javascript">
             $(document).ready(function () {
                 $('#tipo_relatorio').change(function () {
-                    if ($(this).val() === 'estoque_epis') {
+                    if ($(this).val() === 'estoque_epis' || $(this).val() === 'critico') {
                         $('#data_campos').hide();
                     } else {
                         $('#data_campos').show();

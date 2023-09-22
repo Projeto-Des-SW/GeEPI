@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Epi;
+use App\Models\Estoque;
 use App\Models\MovimentoEpi;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
@@ -55,6 +56,20 @@ class RelatorioController extends Controller
 
             return $pdf->stream($nomePDF);
 
+        }
+
+        elseif($request->tipo_relatorio == 'critico')
+        {
+            $epis = Epi::join('estoques', 'epis.id', '=', 'estoques.epi_id')->whereColumn('estoques.quantidade','<','quantidade_minima')->get();
+
+            $pdf = Pdf::loadView('relatorio.' . $request->tipo_relatorio, compact('epis'));
+
+            $nomePDF = 'relatorio_' . $request->tipo_relatorio . '.pdf';
+
+            $pdf->set_option("dpi", 150);
+            $pdf->setPaper('a4');
+
+            return $pdf->stream($nomePDF);
         }
 
 
