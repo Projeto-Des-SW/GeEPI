@@ -16,7 +16,7 @@
                         <option value="" selected hidden> Selecione o tipo de relatório </option>
                         <option value="entrada"> Entrada de EPI </option>
                         <option value="saida"> Saída de EPI </option>
-                        <option value="estoque_epis"> Estoque EPIs </option>
+                        <option value="estoque_epis"> Estoque de EPIs </option>
                     </select>
                 </div>
             </div>

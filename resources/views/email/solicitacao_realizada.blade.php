@@ -68,7 +68,7 @@
                                 <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 60px 30px;">
                                     <table border="0" cellspacing="0" cellpadding="0">
                                         <tr>
-                                            <td align="center" style="border-radius: 3px;" bgcolor="#FAB84B"><a href="http://127.0.0.1:8000//solicitacao/analisar" target="_blank" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #1C3751; text-decoration: none; color: #1C3751; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FAB84B; display: inline-block;">Ver Ação</a></td>
+                                            <td align="center" style="border-radius: 3px;" bgcolor="#FAB84B"><a href="http://127.0.0.1:8000//solicitacao/analisar" target="_blank" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #1C3751; text-decoration: none; color: #1C3751; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FAB84B; display: inline-block;">Ver Solicitação</a></td>
                                         </tr>
                                     </table>
                                 </td>

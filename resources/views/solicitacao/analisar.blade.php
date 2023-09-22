@@ -110,10 +110,10 @@
                     <div class="modal-footer row justify-content-center">
                         <div class="col-1"></div>
                         <div class="col-3">
-                            <button name="action" value="reprovar" type="submit" class="btn btn-danger">Reprovar</button>
+                            <button name="action" value="Rejeitada" type="submit" class="btn btn-danger">Rejeitar</button>
                         </div>
                         <div class="col-3">
-                            <button name="action" value="aprovar" type="submit" class="btn btn-success">Aprovar</button>
+                            <button name="action" value="Aprovada" type="submit" class="btn btn-success">Aprovar</button>
                         </div>
                     </div>
                 </form>
