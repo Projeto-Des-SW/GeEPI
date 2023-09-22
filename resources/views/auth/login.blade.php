@@ -18,7 +18,7 @@
                 simplifique a gestão de EPIs,
                 use o GeEPI na sua empresa</h1>
 
-            <a class="button" href="https://www.youtube.com/shorts/72CLsxfWZsY" target="_blank" style="background-color: #ffffff; color: #1C3751; border: 2px solid #1C3751; padding: 10px 20px; border-radius: 50px; text-decoration: none;">{{ __('Assista nosso vídeo de Demonstração') }}</a>
+            <a class="button" href="https://www.youtube.com/watch?v=dkuSD18DVXY" target="_blank" style="background-color: #ffffff; color: #1C3751; border: 2px solid #1C3751; padding: 10px 20px; border-radius: 50px; text-decoration: none;">{{ __('Assista nosso vídeo de Demonstração') }}</a>
 
         </section>
 

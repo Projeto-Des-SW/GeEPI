@@ -1,7 +1,6 @@
 <h1>Sistema de Gerenciamento de EPI's</h1>
 <img src="https://i.imgur.com/86FgKqH.png"/>
 
-</div>
 
 <h3>Equipe:   
    <a href = "https://github.com/douglasfsbatista">Douglas Batista</a> |
@@ -33,7 +32,7 @@
 <h3><a href = "https://www.figma.com/file/6N51YViG0rxL1YNJgmQSnz/GeEPI?type=design&node-id=0%3A1&mode=design&t=yFdGAGVnETBe4NJl-1" target="_blank">Protótipo</a></h3>
 <h3><a href = "https://drive.google.com/file/d/1tOdPSbOXGwvUn2AMbVDNVMuJyAHmUEL9/view?usp=sharing" target="_blank">MER</a></h3>
 <h3><a href = "https://docs.google.com/document/d/1N2521LyQv55cg6yU1W4JCkEg_4UpvsXGK6-tAIrnFLg/edit?usp=drive_link" target="_blank">Plano de Projeto</a></h3>
-
+<h3><a href= "https://www.youtube.com/watch?v=dkuSD18DVXY" target="_blank">Pitch</a> </h3>
 <h1>Tecnologias Usadas:</h1>
 
 <h3><a href = "https://www.php.net/">PHP</a></h3>
