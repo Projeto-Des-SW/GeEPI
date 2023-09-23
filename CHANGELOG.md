@@ -1,6 +1,17 @@
 # Release Notes
 
-## [Unreleased](https://github.com/laravel/laravel/compare/1.1...main)
+## [Unreleased](https://github.com/laravel/laravel/compare/1.2...main)
+
+## [1.2](https://github.com/laravel/laravel/compare/1.1...1.2) - 2023-09-22
+
+- Pitch Finalizado e Atualizações no Readme e na Página Inicial.
+- Funcionalidade para Realização de solicitações.
+- Funcionalidade para Análise das Solicitações  e suas respectivas validações.
+- Relatório Geral dos EPIs: Quantidade Mínima , Atual em Estoque e em Estado crítico .
+- Criação de Novas Views "Welcome" e "Sobre".
+- Envio de E-mail ao Administrador Quando uma Nova Solicitação For Recebida.
+- Envio de E-mail ao Fiscal Quando Sua Solicitação For Aprovada/Reprovada
+- Ajustes em Views.
 
 ## [1.1](https://github.com/laravel/laravel/compare/v10.2.0...1.1) - 2023-08-26
 
